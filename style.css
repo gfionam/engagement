@@ -344,3 +344,73 @@ footer{
 .fade-up{animation:fadeUp 1.5s ease}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1}}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px){
+
+  .cover h1{
+    font-size:28px;
+  }
+  .guest-text{
+    font-size:20px !important;
+  }
+
+  .envelope{
+    width:180px;
+    height:120px;
+  }
+  .letter{
+    font-size:34px;
+  }
+
+  .section{
+    padding:70px 0;
+  }
+
+  .title{
+    font-size:28px;
+  }
+
+  .countdown{
+    gap:15px;
+  }
+  .cd{
+    width:80px;
+    padding:18px;
+  }
+  .cd span{
+    font-size:22px;
+  }
+
+  .calendar-card{
+    padding:40px 20px;
+    border-radius:30px;
+  }
+
+  .profile-img{
+    width:130px;
+    height:130px;
+  }
+
+  .quote-box{
+    font-size:18px;
+    padding:25px;
+  }
+
+  .map iframe{
+    height:300px;
+  }
+}
+
+/* SMALL PHONE */
+@media (max-width: 480px){
+  .cover h1{
+    font-size:24px;
+  }
+  .title{
+    font-size:24px;
+  }
+  .navbar-brand{
+    font-size:18px;
+  }
+}
