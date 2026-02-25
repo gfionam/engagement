@@ -70,6 +70,7 @@
       <div class="col-12 col-md-4 text-center">
         <div class="profile-card bride">
           <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" class="profile-img">
+          <img src="/bride.jpg" class="profile-img">
           <h3 class="name">Galuh Fiona</h3>
           <p class="role bride-role">The Bride</p>
           <p class="desc">
@@ -85,7 +86,7 @@
 
       <div class="col-12 col-md-4 text-center">
         <div class="profile-card groom">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" class="profile-img">
+          <img src="/groom.jpg" class="profile-img">
           <h3 class="name">Bagasta Sinaga</h3>
           <p class="role groom-role">The Groom</p>
           <p class="desc">
@@ -118,14 +119,14 @@
 <!-- CALENDAR -->
 <section id="calendar" class="section calendar-section text-center">
   <div class="calendar-card mx-3">
-    <h1>📅 Kamis 📅</h1>
+    <h1>🗓️ Thursday 🗓️</h1>
     <h2 class="date">19 Maret 2026</h2>
     <p class="mark">Mark your calendar! 💙</p>
 
     <a target="_blank"
-    href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Our+Engagement+Day&dates=20260319T010000Z/20260319T080000Z&details=Join+us+for+our+special+day!&location=Hotel+Neo+Palangka+Raya"
-    class="btn-calendar">
-      📅 Add to Calendar →
+      href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Our+Engagement+Day&dates=20260319T010000Z/20260319T080000Z&details=Join+us+for+our+special+day!&location=-2.21390,113.92130"
+      class="btn-calendar">
+      🗓️ Add to Calendar →
     </a>
   </div>
 </section>
@@ -133,19 +134,19 @@
 <!-- GALLERY -->
 <section id="galeri" class="section">
   <div class="container">
-    <h2 class="title text-center">Galeri</h2>
+    <h2 class="title text-center">Gallery</h2>
     <div class="row g-4">
       <script>
-        const images=[
-          "1522673607200-164d1b6ce486","1519741497674-611481863552","1520854221256-17451cc331bf",
-          "1504198458649-3128b932f49e","1529634896-3b9a3d5c8bcb","1511285560929-80b456fea0bc",
-          "1503454537195-1dcabb73ffb9","1511988617509-a57c8a288659","1522335789203-aabd1fc54bc9",
-          "1500530855697-b586d89ba3ee","1500534314209-a25ddb2bd429","1492724441997-5dc865305da7"
+        const images = [
+          "1.jpg","2.jpg","3.jpg",
+          "4.jpg","5.jpg","6.jpg",
+          "7.jpg","8.jpg","9.jpg"
         ];
-        document.write(images.map(i=>`
+
+        document.write(images.map(img => `
         <div class="col-12 col-sm-6 col-md-4">
           <div class="gallery-card">
-            <img src="https://images.unsplash.com/photo-${i}" onclick="openImage(this)">
+            <img src="assets/img/${img}" onclick="openImage(this)">
           </div>
         </div>`).join(''));
       </script>
@@ -161,7 +162,14 @@
 <section id="maps" class="section text-center">
   <h2 class="title">Lokasi Acara</h2>
   <div class="container map">
-    <iframe src="https://www.google.com/maps?q=Hotel+Neo+Palangka+Raya&output=embed"></iframe>
+    <iframe
+      src="https://www.google.com/maps?q=Jl.+Tjilik+Riwut,+Palangka+Raya&output=embed"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
   </div>
 </section>
 
