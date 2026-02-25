@@ -223,13 +223,14 @@ body{
 .gallery-card{
   border-radius:30px;
   overflow:hidden;
+  aspect-ratio: 3 / 4; /* consistent portrait ratio */
 }
 
 .gallery-card img{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:top; /* start image from top (no head cut) */
+  object-position:top; /* prevent head being cut */
   display:block;
 }
 .gallery-card:hover img{
