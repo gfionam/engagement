@@ -6,6 +6,17 @@ if(guest){
   document.getElementById("guest-name").innerText="Dear "+guest;
 }
 
+
+const audio = document.getElementById("bgSong");
+const muteBtn = document.getElementById("muteBtn");
+// set initial icon based on state
+muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+
+muteBtn.addEventListener("click", () => {
+    audio.muted = !audio.muted;
+    muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+});
+
 // buka amplop
 function openInvitation(){
   const env = document.querySelector(".envelope");
@@ -19,7 +30,10 @@ function openInvitation(){
     content.style.display = "block";
     setTimeout(()=>{ content.style.opacity="1"; },50);
 
-    document.getElementById("bg-music").play().catch(()=>{});
+    if (audio.paused) {
+        audio.play().catch(()=>{});
+    }
+
     window.scrollTo(0,0);
   },800);
 }
