@@ -188,6 +188,13 @@ body{
 }
 .cd span{font-size:30px;font-weight:700}
 
+#calendar{
+  display:flex;
+  justify-content:center; /* horizontal center */
+  align-items:center;     /* vertical center (optional) */
+  text-align:center;
+  padding:80px 20px;
+}
 /* CALENDAR */
 .calendar-card{
   background:white;
@@ -214,12 +221,16 @@ body{
 
 /* GALLERY */
 .gallery-card{
-  overflow:hidden;border-radius:25px;
-  box-shadow:0 20px 40px rgba(0,0,0,.1);
+  border-radius:30px;
+  overflow:hidden;
 }
+
 .gallery-card img{
-  width:100%;height:260px;object-fit:cover;
-  transition:1s;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top; /* start image from top (no head cut) */
+  display:block;
 }
 .gallery-card:hover img{
   transform:scale(1.12) rotate(1deg);
@@ -250,6 +261,7 @@ body{
   width:170px;
   height:170px;
   object-fit:cover;
+  object-position: top; /* keep top of image visible */
   border-radius:50%;
   border:8px solid #f3f7ff;
   box-shadow:0 10px 30px rgba(0,0,0,.1);
@@ -310,13 +322,17 @@ body{
   background:rgba(0,0,0,.8);
   display:none;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start; /* keep image at top */
+  padding-top:40px;
+  overflow-y:auto; /* allow scrolling if image is tall */
   z-index:9999;
 }
 
 .img-modal img{
   max-width:90%;
-  max-height:85%;
+  max-height:calc(100vh - 40px); /* fit inside viewport */
+  object-fit:contain;            /* no cropping */
+  object-position:top;           /* prioritize top (head) */
   border-radius:20px;
   box-shadow:0 30px 60px rgba(0,0,0,.5);
   animation:zoomImage .4s ease;
@@ -387,10 +403,6 @@ footer{
     border-radius:30px;
   }
 
-  .profile-img{
-    width:130px;
-    height:130px;
-  }
 
   .quote-box{
     font-size:18px;
