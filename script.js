@@ -17,10 +17,13 @@ muteBtn.addEventListener("click", () => {
     muteBtn.textContent = audio.muted ? "🔇" : "🔊";
 });
 
-// buka amplop
 function openInvitation(){
-  const env = document.querySelector(".envelope");
-  env.classList.add("open");
+  const coverImg = document.querySelector(".cover-image-wrapper");
+
+  // add small click animation
+  if(coverImg){
+    coverImg.style.transform = "scale(0.95)";
+  }
 
   setTimeout(()=>{
     const cover = document.getElementById("cover");
@@ -30,12 +33,12 @@ function openInvitation(){
     content.style.display = "block";
     setTimeout(()=>{ content.style.opacity="1"; },50);
 
-    if (audio.paused) {
-        audio.play().catch(()=>{});
+    if (typeof audio !== "undefined" && audio.paused) {
+      audio.play().catch(()=>{});
     }
 
     window.scrollTo(0,0);
-  },800);
+  },500);
 }
 
 // GALLERY POPUP
