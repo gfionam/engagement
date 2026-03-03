@@ -1,73 +1,153 @@
-// Nama tamu dari URL
-const params=new URLSearchParams(window.location.search);
-let guest=params.get("to");
-if(guest){
-  guest=decodeURIComponent(guest.replace(/\+/g," "));
-  document.getElementById("guest-name").innerText="Dear "+guest;
+/* ================================
+   GUEST NAME FROM URL
+================================ */
+
+const params = new URLSearchParams(window.location.search);
+let guest = params.get("to");
+
+if (guest) {
+  guest = decodeURIComponent(guest.replace(/\+/g, " "));
+  const guestEl = document.getElementById("guest-name");
+  if (guestEl) {
+    guestEl.innerText = "Dear " + guest;
+  }
 }
 
+/* ================================
+   COVER OPEN (MOBILE SAFE)
+================================ */
 
-const audio = document.getElementById("bgSong");
-const muteBtn = document.getElementById("muteBtn");
-// set initial icon based on state
-muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+document.addEventListener("DOMContentLoaded", () => {
 
-muteBtn.addEventListener("click", () => {
-    audio.muted = !audio.muted;
-    muteBtn.textContent = audio.muted ? "🔇" : "🔊";
-});
-
-function openInvitation() {
-
-  document.getElementById("cover").style.display = "none";
-  document.getElementById("content").classList.add("show");
-
+  const cover = document.getElementById("cover");
+  const content = document.getElementById("content");
   const audio = document.getElementById("bgSong");
-  if (audio && audio.paused) {
-    audio.muted = false;
-    audio.play().catch(() => {});
+  const muteBtn = document.getElementById("muteBtn");
+
+  // Open invitation when cover tapped
+  const wrapper = document.querySelector(".cover-image-wrapper");
+  if (wrapper) {
+    wrapper.addEventListener("click", openInvitation);
   }
 
-  window.scrollTo(0, 0);
-}
+  function openInvitation() {
 
-// GALLERY POPUP
-function openImage(img){
+    // Hide cover
+    cover.style.display = "none";
+
+    // Show content
+    content.classList.add("show");
+
+    // Enable scrolling (mobile fix)
+    document.body.style.overflow = "auto";
+
+    // Play music after user interaction (required on mobile)
+    if (audio) {
+      audio.muted = false;
+      audio.play().catch(() => {});
+    }
+
+    window.scrollTo(0, 0);
+  }
+
+  /* ================================
+     MUTE BUTTON
+  ================================= */
+
+  if (audio && muteBtn) {
+
+    // Set initial icon
+    muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+
+    muteBtn.addEventListener("click", () => {
+      audio.muted = !audio.muted;
+      muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+    });
+  }
+
+  /* ================================
+     GALLERY MODAL
+  ================================= */
+
   const modal = document.getElementById("imgModal");
   const modalImg = document.getElementById("modalImg");
 
-  modal.style.display = "flex";
-  modalImg.src = img.src;
-}
-
-function closeImage(){
-  document.getElementById("imgModal").style.display = "none";
-}
-
-document.querySelector(".cover-image-wrapper")
-  .addEventListener("click", openInvitation);
-
-// reveal sections on scroll
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
+  document.querySelectorAll(".gallery-card img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    });
   });
-},{ threshold:0.2 });
 
-document.querySelectorAll(".section").forEach(section=>{
-  observer.observe(section);
+  if (modal) {
+    modal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  if (modalImg) {
+    modalImg.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent closing when clicking image
+    });
+  }
+
+  /* ================================
+     NAVBAR AUTO CLOSE (MOBILE)
+  ================================= */
+
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+      const navbarCollapse = document.querySelector(".navbar-collapse");
+      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+      if (bsCollapse) {
+        bsCollapse.hide();
+      }
+    });
+  });
+
+  /* ================================
+     SCROLL REVEAL ANIMATION
+  ================================= */
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".section").forEach(section => {
+    observer.observe(section);
+  });
+
+  /* ================================
+     COUNTDOWN TIMER
+  ================================= */
+
+  const target = new Date("March 19, 2026 08:00:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = target - now;
+
+    if (distance < 0) return;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    const dEl = document.getElementById("days");
+    const hEl = document.getElementById("hours");
+    const mEl = document.getElementById("minutes");
+    const sEl = document.getElementById("seconds");
+
+    if (dEl) dEl.innerText = days;
+    if (hEl) hEl.innerText = hours;
+    if (mEl) mEl.innerText = minutes;
+    if (sEl) sEl.innerText = seconds;
+
+  }, 1000);
+
 });
-
-// countdown 19 Maret 2026
-const target=new Date("March 19, 2026 08:00:00").getTime();
-setInterval(()=>{
-  const now=new Date().getTime();
-  const d=target-now;
-
-  document.getElementById("days").innerText=Math.floor(d/(1000*60*60*24));
-  document.getElementById("hours").innerText=Math.floor((d/(1000*60*60))%24);
-  document.getElementById("minutes").innerText=Math.floor((d/(1000*60))%60);
-  document.getElementById("seconds").innerText=Math.floor((d/1000)%60);
-},1000);
