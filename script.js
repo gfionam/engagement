@@ -17,28 +17,17 @@ muteBtn.addEventListener("click", () => {
     muteBtn.textContent = audio.muted ? "🔇" : "🔊";
 });
 
-function openInvitation(){
-  const coverImg = document.querySelector(".cover-image-wrapper");
+function openInvitation() {
 
-  // add small click animation
-  if(coverImg){
-    coverImg.style.transform = "scale(0.95)";
+  document.getElementById("cover").style.display = "none";
+  document.getElementById("content").classList.add("show");
+
+  const audio = document.getElementById("bgSong");
+  if (audio && audio.paused) {
+    audio.play().catch(() => {});
   }
 
-  setTimeout(()=>{
-    const cover = document.getElementById("cover");
-    const content = document.getElementById("content");
-
-    cover.style.display = "none";
-    content.style.display = "block";
-    setTimeout(()=>{ content.style.opacity="1"; },50);
-
-    if (typeof audio !== "undefined" && audio.paused) {
-      audio.play().catch(()=>{});
-    }
-
-    window.scrollTo(0,0);
-  },500);
+  window.scrollTo(0, 0);
 }
 
 // GALLERY POPUP

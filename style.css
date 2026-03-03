@@ -38,9 +38,14 @@ body{
 
 /* HIDE CONTENT BEFORE OPEN */
 #content{
-  display:none;
   opacity:0;
+  display:none;
   transition:opacity 1s ease;
+}
+
+#content.show{
+  display:block;
+  opacity:1;
 }
 
 
@@ -121,16 +126,6 @@ body{
   letter-spacing:1px;
   color:#7a6a58;
 }
-
-.guest-text{
-    font-size:32px !important;
-    font-weight: 500 !important;
-  }
-.guest-text-2{
-    font-size:32px !important;
-    font-weight: 500 !important;
-    margin-top: -40px !important;
-  }
 
 @keyframes fadeIn{
   from{opacity:0; transform:translateY(20px);}
@@ -462,15 +457,6 @@ footer{
   .cover h1{
     font-size:28px;
   }
-  .guest-text{
-    font-size:28px !important;
-    font-weight: 450 !important;
-  }
-  .guest-text-2{
-    font-size:28px !important;
-    font-weight: 500 !important;
-    margin-top: -40px !important;
-  }
 
   .section{
     padding:70px 0;
@@ -508,44 +494,31 @@ footer{
 }
 
 /* SMALL PHONE */
+/* SMALL PHONE */
 @media (max-width: 480px){
-  .cover-image-wrapper {
-    width: 90%;
-    margin: 20px auto;        /* center it */
-    border: 3px solid #ccc;   /* border */
-    border-radius: 15px;      /* rounded corners */
-    overflow: hidden;         /* keeps border radius clean */
-  }
 
   .cover {
-    position: relative;
+    position: fixed;
+    inset: 0;
+    height: 100vh;
     width: 100%;
-    height: 100vh;      /* full phone screen height */
     overflow: hidden;
+    z-index: 999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  .cover-image-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: none;
+    border-radius: 0;
   }
 
   .cover-video {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* makes video fill screen without distortion */
+    object-fit: cover;
   }
-  .title{
-    font-size:24px;
-  }
-  .navbar-brand{
-    font-size:18px;
-  }
-  .guest-text{
-    font-size:24px !important;
-    font-weight: 400 !important;
-  }
-  .guest-text-2{
-    font-size:24px !important;
-    font-weight: 500 !important;
-    margin-top: -40px !important;
-  }
-  
+
 }
