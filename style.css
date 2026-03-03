@@ -48,24 +48,6 @@ body{
   opacity:1;
 }
 
-
-/* SOFT FLOATING PARTICLES */
-.bubbles::before{
-  content:'';
-  position:fixed;
-  width:200%;height:200%;
-  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.6),transparent 60%),
-             radial-gradient(circle at 70% 70%,rgba(173,216,230,.5),transparent 60%);
-  animation:moveBg 40s linear infinite;
-  opacity:.35;
-  z-index:-1;
-}
-@keyframes moveBg{
-  from{transform:translateY(0)}
-  to{transform:translateY(-30%)}
-}
-
-
 /* COVER */
 #cover {
   position: fixed;
@@ -425,12 +407,6 @@ footer{
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px){
-  
-
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
 
   #cover {
     position: fixed;
@@ -501,11 +477,6 @@ footer{
 
 /* SMALL PHONE */
 @media (max-width: 480px){
-
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
 
   #cover {
     position: fixed;
