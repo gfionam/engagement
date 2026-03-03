@@ -1,10 +1,10 @@
 // Nama tamu dari URL
-const params=new URLSearchParams(window.location.search);
-let guest=params.get("to");
-if(guest){
-  guest=decodeURIComponent(guest.replace(/\+/g," "));
-  document.getElementById("guest-name").innerText="Dear "+guest;
-}
+// const params=new URLSearchParams(window.location.search);
+// let guest=params.get("to");
+// if(guest){
+//   guest=decodeURIComponent(guest.replace(/\+/g," "));
+//   document.getElementById("guest-name").innerText="Dear "+guest;
+// }
 
 
 const audio = document.getElementById("bgSong");
