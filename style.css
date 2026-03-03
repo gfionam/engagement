@@ -113,6 +113,11 @@ body{
     font-size:32px !important;
     font-weight: 500 !important;
   }
+.guest-text-2{
+    font-size:32px !important;
+    font-weight: 500 !important;
+    margin-top: -40px !important;
+  }
 
 @keyframes fadeIn{
   from{opacity:0; transform:translateY(20px);}
@@ -437,6 +442,11 @@ footer{
     font-size:28px !important;
     font-weight: 450 !important;
   }
+  .guest-text-2{
+    font-size:28px !important;
+    font-weight: 500 !important;
+    margin-top: -40px !important;
+  }
 
   .section{
     padding:70px 0;
@@ -487,6 +497,11 @@ footer{
   .guest-text{
     font-size:24px !important;
     font-weight: 400 !important;
+  }
+  .guest-text-2{
+    font-size:24px !important;
+    font-weight: 500 !important;
+    margin-top: -40px !important;
   }
   
 }
