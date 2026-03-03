@@ -296,11 +296,10 @@ body{
   object-fit:cover;     /* crop nicely */
   object-position:top;  /* keep face/head visible */
   display:block;
-  transition: transform .6s ease;
 }
 
 .gallery-card:hover img{
-  transform:scale(1.08) rotate(1deg);
+  transform:scale(1) rotate(1deg);
 }
 
 /* OUR STORY NEW DESIGN */
@@ -430,20 +429,45 @@ footer{
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px){
+  .cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 100vh;   /* fallback */
+    height: 100dvh;  /* modern fix */
+
+    overflow: hidden;
+    z-index: 9999;
+
+    /* Remove background to prevent black showing */
+    background: none;
+
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  .cover.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   .cover-image-wrapper {
-    width: 90%;
-    margin: 20px auto;        /* center it */
-    border: 3px solid #ccc;   /* border */
-    border-radius: 15px;      /* rounded corners */
-    overflow: hidden;         /* keeps border radius clean */
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .cover-video {
+    position: absolute;
+    inset: 0;
+
     width: 100%;
-    height: auto;
-  }
-  .cover h1{
-    font-size:28px;
+    height: 100%;
+
+    object-fit: cover;
   }
 
   .section{
@@ -469,8 +493,6 @@ footer{
     padding:40px 20px;
     border-radius:30px;
   }
-
-
   .quote-box{
     font-size:18px;
     padding:25px;
