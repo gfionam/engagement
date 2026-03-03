@@ -24,6 +24,7 @@ function openInvitation() {
 
   const audio = document.getElementById("bgSong");
   if (audio && audio.paused) {
+    audio.muted = false;
     audio.play().catch(() => {});
   }
 
@@ -42,6 +43,9 @@ function openImage(img){
 function closeImage(){
   document.getElementById("imgModal").style.display = "none";
 }
+
+document.querySelector(".cover-image-wrapper")
+  .addEventListener("click", openInvitation);
 
 // reveal sections on scroll
 const observer = new IntersectionObserver((entries)=>{
