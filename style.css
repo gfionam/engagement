@@ -98,6 +98,13 @@ body{
   border-radius:50px; /* soft rounded look */
   box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
+.cover-image-wrapper {
+    width: 90%;
+    margin: 20px auto;        /* center it */
+    border: 3px solid #ccc;   /* border */
+    border-radius: 15px;      /* rounded corners */
+    overflow: hidden;         /* keeps border radius clean */
+  }
 
 /* hover effect */
 .cover-image-wrapper:hover{
