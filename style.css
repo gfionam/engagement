@@ -63,7 +63,7 @@ body{
   height: 100dvh;
   overflow: hidden;
   z-index: 9999;
-  background: #000; /* optional background behind video */
+  background: #f9fcff; /* optional background behind video */
   display: flex;
   justify-content: center;
   align-items: center;
