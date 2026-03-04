@@ -83,7 +83,7 @@ body{
 
 .cover-video {
   width: 100%;
-  height: auto;
+  max-height: 99%;
   object-fit: contain; /* keeps entire video visible */
   display: block;
 }
