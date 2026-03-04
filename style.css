@@ -56,33 +56,45 @@ body{
 
 /* COVER */
 .cover {
-  position: absolute;
-  inset: 0;
-  display: flex;                 /* enable flex */
-  justify-content: center;       /* horizontal center */
-  align-items: center;           /* vertical center */
-  overflow: hidden;
-  z-index: 9999;
-  background: none;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-.cover.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+    height: 100vh;   /* fallback */
+    height: 100dvh;  /* modern fix */
 
-.cover-image-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    overflow: hidden;
+    z-index: 9999;
 
-.cover-video {
-  width: 60vw;       /* 80% of screen width */
-  max-width: 700px;  /* prevents it from being too large on desktop */
-  height: auto;
-}
+    /* Remove background to prevent black showing */
+    background: none;
+
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  .cover.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .cover-image-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cover-video {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
 
 .time{
   font-size:24px;

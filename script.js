@@ -17,6 +17,22 @@ muteBtn.addEventListener("click", () => {
     muteBtn.textContent = audio.muted ? "🔇" : "🔊";
 });
 
+function setCoverVideo() {
+  const video = document.getElementById("coverVideo");
+  const source = document.getElementById("videoSource");
+
+  if (window.innerWidth > 768) {
+    source.src = "img/cover-land.mp4";
+  } else {
+    source.src = "img/cover.mp4";
+  }
+
+  video.load();
+}
+
+setCoverVideo();
+window.addEventListener("resize", setCoverVideo);
+
 function openInvitation() {
 
   document.getElementById("cover").style.display = "none";
