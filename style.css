@@ -235,27 +235,152 @@ body{
   padding:80px 20px;
 }
 /* CALENDAR */
+/* SECTION BACKGROUND */
+.calendar-section{
+  padding:120px 20px;
+  background:linear-gradient(180deg,#f9fbff,#eef5ff);
+}
+
+/* CARD */
 .calendar-card{
   background:white;
-  padding:70px;border-radius:50px;
-  box-shadow:0 30px 60px rgba(0,0,0,.08);
-  max-width:650px;margin:auto;
+  padding:80px 70px;
+  border-radius:40px;
+  box-shadow:0 30px 80px rgba(0,0,0,.08);
+  max-width:650px;
+  margin:auto;
   transition:.6s;
+  position:relative;
+  overflow:hidden;
 }
+
+/* subtle glow */
+.calendar-card::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle,#a2d2ff20,transparent 70%);
+  z-index:0;
+}
+
+/* hover animation */
 .calendar-card:hover{
-  transform:scale(1.02);
-  box-shadow:0 40px 80px rgba(0,0,0,.12);
+  transform:translateY(-6px);
+  box-shadow:0 40px 100px rgba(0,0,0,.12);
 }
+
+/* TEXT */
+.calendar-card h1{
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:10px;
+  color:#3a3a3a;
+}
+
+.calendar-card h2{
+  font-size:26px;
+  font-weight:600;
+  color:#5aa9e6;
+}
+
+.calendar-card .time{
+  font-size:20px;
+  color:#555;
+  margin:6px 0;
+}
+
+.mark{
+  margin-top:10px;
+  font-style:italic;
+  color:#777;
+}
+
+/* LOCATION TEXT */
+.location-text{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:20px;
+  font-weight:700;
+  color:#444;
+  padding:14px 28px;
+  margin-bottom:25px;
+
+  background:#f7fbff;
+  border-radius:30px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+  transition:.3s;
+}
+
+/* ICON */
+.location-text i{
+  color:#5aa9e6;
+  font-size:22px;
+}
+
+/* HOVER EFFECT */
+.location-text:hover{
+  transform:translateY(-2px);
+  box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+/* DRESSCODE BOX */
+.dresscode{
+  margin-top:30px;
+  padding:18px 28px;
+  background:#f7fbff;
+  border-radius:20px;
+  display:inline-block;
+}
+
+.dresscode-title{
+  font-weight:600;
+  margin-bottom:6px;
+  color:#444;
+}
+
+.dresscode-items{
+  font-size:18px;
+  color:#666;
+}
+
+/* dress icons */
+.dress{
+  margin:0 4px;
+}
+
+.white{
+  color:#ddd;
+}
+
+.beige{
+  color:#c7a27c;
+}
+
+/* BUTTON */
 .btn-calendar{
-  display:inline-block;padding:18px 44px;border-radius:50px;
+  display:inline-block;
+  margin-top:40px;
+  padding:18px 44px;
+  border-radius:50px;
   background:linear-gradient(135deg,#a2d2ff,#5aa9e6);
-  color:white;font-weight:600;text-decoration:none;
-  box-shadow:0 15px 30px rgba(90,169,230,.4);
-  transition:.4s;
+  color:white;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 15px 40px rgba(90,169,230,.35);
+  transition:.35s;
+  letter-spacing:.3px;
 }
+
 .btn-calendar:hover{
-  transform:translateY(-3px);
-  box-shadow:0 25px 50px rgba(90,169,230,.5);
+  transform:translateY(-4px);
+  box-shadow:0 25px 60px rgba(90,169,230,.5);
+  background:linear-gradient(135deg,#8bc8ff,#4d9edb);
 }
 
 /* GALLERY FIXED */
