@@ -79,8 +79,8 @@ body{
 }
 
 .cover-video {
-  width: 80vw;       /* 80% of screen width */
-  max-width: 900px;  /* prevents it from being too large on desktop */
+  width: 60vw;       /* 80% of screen width */
+  max-width: 700px;  /* prevents it from being too large on desktop */
   height: auto;
 }
 
