@@ -276,6 +276,7 @@ body{
   height:200%;
   background:radial-gradient(circle,#a2d2ff20,transparent 70%);
   z-index:0;
+  pointer-events:none; /* fix */
 }
 
 /* hover animation */
