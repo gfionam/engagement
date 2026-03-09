@@ -73,7 +73,7 @@ document.querySelectorAll(".section").forEach(section=>{
 });
 
 // countdown 19 Maret 2026
-const target=new Date("March 19, 2026 08:00:00").getTime();
+const target=new Date("March 19, 2026 17:00:00").getTime();
 setInterval(()=>{
   const now=new Date().getTime();
   const d=target-now;
